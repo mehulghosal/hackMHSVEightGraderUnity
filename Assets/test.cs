@@ -11,12 +11,12 @@ public class test : MonoBehaviour
     Vector2 up;
 	int foo;
     bool key1;
- 
+	public Collider coll;
     // Use this for initialization
     void Start()
         
     {
-
+		coll = GetComponent<Collider>();
         animator = this.GetComponent<Animator>();
         transform = this.GetComponent<Transform>();
         rb = this.GetComponent<Rigidbody2D>();
@@ -38,6 +38,7 @@ public class test : MonoBehaviour
 
             animator.SetTrigger("spacepressed");
             animator.SetInteger("attack", 1);
+			coll.material.bounciness = 100;
 			
         }
         if(Input.GetKey("w"))
